@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    {%  if sent %}
+        <h1>E-mail successfully</h1>
+        <p>
+            "{{ post.title }}" was successfully sent to {{ cd.to }}.
+        </p>
+    {% else %}
+        <h1>Share "{{ post.title }}" by e-mail</h1>
+        <form action="." method="post">
+            {{ form.as_p }}
+            <!--crsf_token模板标签引进了可以避开Cross-Site request forgery（CSRF）
+               攻击的自动生成的令牌，这是一个隐藏字段，这些攻击由恶意的站点或者可以在你的站点中
+               为用户执行恶意行为的程序组成。
+             -->
+            {% csrf_token %}
+            <input type="submit" value="send e-mail">
+        </form>
+    {% endif %}
+{% endblock %}

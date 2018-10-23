@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+ <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <title>{% block title %}知 行 合 一 {% endblock %}</title>
+</head>
+<body>
+    <div id="header">
+            <ul id="nav">
+                <li><a href="/" id="titleLog"><b>知行合一</b></a></li>
+                <li><a href="/" >首页</a> </li>
+                <li><a href="/" id="photoGraphics">摄影作品</a></li>
+                <li><a href="/" id="MoonWords">心情文字</a></li>
+                <li><a href="/">文章</a></li>
+                <li><a href="/">Blog</a> </li>
+                <li><a href="/">论坛</a> </li>
+                <li><a href="/">联系</a> </li>
+            </ul>
+    </div>
+
+    <div id="curtain" style="background-image: url({% static 'img/citybg.jpg' %});background-size:100% 100%;" >
+
+    </div>
+
+    <div id="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <div id="footer">
+
+
+
+    </div>
+
+</body>
+</html>
